@@ -1,0 +1,114 @@
+<div>
+	<div id="content" class="pos-rel" style="width: 600px;">
+		<div class="container-fluid">
+			<div class="lock-container pos-rel width-400-log">
+				<div
+					class="panel panel-default text-center paper-shadow box-shadow-none"
+					data-z="0.5">
+					<div move-label>
+						<form id="newSignupForm" name="newSignupForm" novalidate>
+							<h1 class="text-display-1 text-center margin-bottom-none">New
+								Signup</h1>
+							<img src="assets/images/reset.svg" alt=""
+								class="img-circle width-80">
+							<div class="panel-body">
+								<h5 class="alert-box rv-error" ng-if="resposeError">
+									<span ng-bind="errorMessage"></span>
+								</h5>
+								<h5 class="alert-box rv-success" ng-if="resposeSuccess">
+									<span ng-bind="activationMessage"></span>
+								</h5>
+								<!--  fullname starts -->
+								<div class="form-group form-group-login">
+									<div
+										class="form-control-material form-mater-login material-login">
+										<i class="icon-login fa fa-user"></i> <label
+											class="label-login" for="fullname">Full Name<span
+											class="req">*</span></label> <input class="form-control input-login"
+											default-focus ng-focus name="fullname" auto-focus
+											ng-model="user.fullName" id="fullname" type="text"
+											class="form-control" ng-required="true"
+											placeholder="Full Name">
+									</div>
+									<span class="log-error"
+										ng-if="isFormSubmitted && !newSignupForm.fullname.$focused"
+										style="padding-left: 5px;"> <span
+										class="error-text-log"
+										ng-show="newSignupForm.fullname.$error.required"> <span
+											ng-bind="error_Message.NAME_REQ"></span>
+									</span>
+									</span>
+								</div>
+								<!--  fullname  ENDS -->
+
+								<!--  Email ID starts -->
+								<div class="form-group form-group-login">
+									<div
+										class="form-control-material form-mater-login material-login">
+										<i class="icon-login fa fa-envelope"></i> <label
+											class="label-login" for="emailId">Email<span
+											class="req">*</span></label> <input class="form-control input-login"
+											name="emailId" auto-focus ng-model="user.email" id="emailId"
+											type="text" class="form-control" placeholder="Email"
+											ng-pattern="EMAILREGEXP">
+									</div>
+								</div>
+								<!--  emailId ID ENDS -->
+
+								<!--  Organization starts -->
+								<div class="form-group form-group-login">
+									<div
+										class="form-group form-control-material contact-filed-div select-box-down-arrow">
+										<i class="icon-login fa fa-sitemap"></i> <label
+											class="label-login" for="organization">Organization<span
+											class="req">*</span></label> <select
+											class="form-control contact-field select-box-down-arrow"
+											ng-model="org" required id="org"
+											ng-options="org as org.name for org in organizations"
+											name="org"><option value="">Select Organization</option></select>
+									</div>
+								</div>
+								<!--  organization ENDS -->
+
+								<!--  contact starts -->
+								<div class="form-group form-group-login">
+									<div
+										class="form-control-material form-mater-login material-login">
+										<i class="icon-login fa fa-mobile"></i> <label
+											class="label-login" for="contactNo">Contact Number<span
+											class="req">*</span></label> <input class="form-control input-login"
+											ng-focus name="contactNo" ng-model="user.contactNo"
+											id="contactNo" type="text" class="form-control"
+											ng-required="true" placeholder="Contact Number"
+											maxlength="12" ng-minlength="12" ng-maxlength="12"
+											placeholder="Phone No." avoid-dots no-space is-number
+											mask="999-999-9999" restrict="reject">
+									</div>
+									<span class="log-error"
+										ng-if="isFormSubmitted && !newSignupForm.contactNo.$focused"
+										style="padding-left: 5px;"> <span
+										class="error-text-log"
+										ng-show="newSignupForm.contactNo.$error.required"> <span
+											ng-bind="error_Message.CONTACT_REQ"></span>
+									</span> <span class="error-text-log"
+										ng-show="newSignupForm.contactNo.$error.minlength "> <span
+											ng-bind="error_Message.CONTACT_SHOULD_BE_10"></span>
+									</span>
+									</span>
+								</div>
+								<!--  contactNo  ENDS -->
+
+
+								<input value="Signup" ng-click="signupUser()"
+									ng-disabled="newSignupForm.$invalid"
+									class="btn btn-primary reset-btn" id="activateAccount"
+									type="submit">
+								<div class="clear"></div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

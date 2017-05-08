@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" id="ng-app" lang="en" class="no-js  top-navbar-xlarge ls-bottom-footer  " ng-app="webApp" prefix="og: http://ogp.me/ns#">
+
+<head>
+    <!-- google analytics script-->
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    </script>
+    <script src="https://use.typekit.net/pvo4jdm.js"></script>
+    <script>
+        try {
+            Typekit.load({
+                async: true
+            });
+        } catch (e) {}
+    </script>
+
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="fragment" content="!">
+    <meta name="description" content="{{metaDescription}}">
+    <meta name="keywords" content="{{metaTags}}">
+    <meta property="fb:app_id" content="{{fbAppId}}" />
+    <meta name="google-site-verification" content="2aMgq0lCGtrTeQn0ksNMrdoQoGHTxDOQiY8tDpIT3Jo">
+    <meta http-equiv="cache-control" content="max-age=0">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
+    <meta http-equiv="pragma" content="no-cache">
+    <title ng-bind="appTitle"></title>
+    <meta property="og:title" content="{{appTitle}}" />
+    <meta property="og:description" content="{{metaDescription}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{slugUrl}}" />
+    <meta property="og:site_name" content="Revature" />
+    <meta property="og:image" content="{{slugImage}}" />
+    <meta property="og:image:secure_url" content="{{slugImage}}" />
+    <meta property="og:image:type" content="image/jpg" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" id="ogImageHeight" />
+
+    <link rel="stylesheet" type="text/css" href="assets/css/vendor/all.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/app/app.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/app/custom.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/vendor/bootstrap-datepicker.min.css">
+
+    <!-- assets/js/bundle.js -->
+    <!-- build:js assets/js/bundle.js -->
+    <script src="assets/js/vendor/all.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="app/scripts/ng_scripts/angular.js"></script>
+    <script type="text/javascript" src="app/scripts/ng_scripts/angular.vendor.js"></script>
+    <script type="text/javascript" src="app/scripts/ng_scripts/angular-animate.min.js"></script>
+    <script type="text/javascript" src="app/scripts/ng_scripts/angular-aria.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="app/scripts/ng_scripts/roundProgress.js"></script>
+
+    <script type="text/javascript" src="app/scripts/ng_scripts/angular-aria.min.js"></script>
+    <script type="text/javascript" src="app/scripts/ng_scripts/angular-messages.min.js"></script>
+    <script type="text/javascript" src="app/scripts/ng_scripts/angular-touch.min.js"></script>
+
+    <!-- Main Application JavaScript -->
+    <script type="text/javascript" src="app/scripts/app.js"></script>
+    <script type="text/javascript" src="app/scripts/services/services.js"></script>
+    <script type="text/javascript" src="app/scripts/services/TempService.js"></script>
+    <script type="text/javascript" src="app/scripts/controllers/TempController.js"></script>
+    <!-- appComponents:js -->
+    <!-- endinject -->
+
+    <script type="text/javascript" src="app/scripts/ng_scripts/angular-sanitize.min.js"></script>
+
+    <script>
+        $(function() {
+            $(document).tooltip({
+                track: true
+            });
+        });
+    </script>
+</head>
+
+<body data-spy="scroll" class="{{bodyClass}} breakpoint-1024" ng-cloak>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('.scrollup').fadeIn();
+                } else {
+                    $('.scrollup').fadeOut();
+                }
+            });
+
+            $('.scrollup').click(function() {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 600);
+                return false;
+            });
+
+            // for browser back button
+            var loaded = false;
+            window.onpopstate = function(e) {
+                if (!loaded) {
+                    loaded = true;
+                    $("div").removeClass("modal-backdrop fade");
+                    $(".modal-backdrop").removeClass("in");
+                }
+            }
+
+        });
+    </script>
+    <div ng-view ng-cloak></div>
+    <a href="#" class="scrollup">Scroll</a>
+
+</body>
+
+</html>
